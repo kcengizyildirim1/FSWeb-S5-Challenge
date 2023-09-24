@@ -11,7 +11,25 @@ const Header = (baslik, tarih, yazi) => {
   //    <span class="temp">{ yazi }</span>
   //  </div>
   //
-}
+  const header = document.createElement("div");
+  header.classList.add("header");
+
+  const date = document.createElement("span");
+  date.classList.add("date");
+  date.textContent = tarih;
+  header.appendChild(date);
+
+  const h1 = document.createElement("h1");
+  h1.textContent = baslik;
+  header.appendChild(h1);
+
+  const text = document.createElement("span");
+  text.classList.add("temp");
+  text.textContent = yazi;
+  header.appendChild(text);
+
+  return header;
+};
 
 const headerEkleyici = (secici) => {
   // GÖREV 2
@@ -20,10 +38,15 @@ const headerEkleyici = (secici) => {
   // Görev 1'de tanımladığınız Header bileşenini kullanarak bir header oluşturun (baslik,tarih,yazi parametrelerini kendi isteğinize göre belirleyin)
   // Oluşturulan header'i, verilen seçiciyle eşleşen DOM'daki öğeye eklemelidir.
   //
-
-  // İPUCU: querySelector bir string alabilir (bknz: querySelector("#wrapper")) 
+  // İPUCU: querySelector bir string alabilir (bknz: querySelector("#wrapper"))
   // fakat aynı zamanda bir değişken de alabilir (bknz: querySelector(secici))
- 
-}
+  const header = Header(
+    "Teknoloji Zamanı",
+    "11 Kasım 2022",
+    "Teknoloji Dünyasında Küçük Bir Tur"
+  );
+  const appender = document.querySelector(secici);
+  appender.appendChild(header);
+};
 
-export { Header, headerEkleyici }
+export { Header, headerEkleyici };
